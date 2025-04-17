@@ -1,0 +1,138 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #fdf7f2, #f4e9dc);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 25px;
+      background-color: #fffaf5;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      background-color: #5d4037;
+      color: #ffffff;
+      padding: 20px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      background-color: #4e342e;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #3e2723;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 25px 0;
+      color: #4e342e;
+    }
+
+    button {
+      display: block;
+      width: 90%;
+      max-width: 320px;
+      margin: 15px auto;
+      padding: 14px 20px;
+      font-size: 16px;
+      color: white;
+      background: linear-gradient(90deg, #8d6e63, #5d4037);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #6d4c41, #3e2723);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #6d4c41;
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #5d4037;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome User!</h1>
+    <nav>
+      <ul>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container" id="action-buttons">
+    <h2>What would you like to do?</h2>
+    <button onclick="window.location.href='events.html'">🎉 View Events</button>
+    <button onclick="window.location.href='history.html'">📜 Booking History</button>
+  </div>
+</body>
+</html>
